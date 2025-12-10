@@ -4,7 +4,9 @@ const cart = [
     { itemCount: 0 }
 ];
 cart.items = ['apples', 'bananas', 'cherries'];
-cart.itemCount = 3
-cart.
+cart.itemCount = 3;
+cart.totalPrice = 99.99;
+delete cart.customerName;
+console.log(cart);
 
 
