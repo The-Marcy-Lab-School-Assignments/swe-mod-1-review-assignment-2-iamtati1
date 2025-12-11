@@ -26,7 +26,9 @@ Part B: How would you modify the code so that reassigning `playlist2.songCount` 
 
 ### Response 1
 
-Your response...
+***15*** will be logged to the console because `playlist2` is referencing the same object as `playlist1`. In JavaScript, objects are stored by reference, not by value. That means when you assign `playlist2 = playlist1`, both variables point to the same object in memory. So when `playlist2.songCount` is changed to 15, it also updates `playlist1.songCount`.
+
+To make sure changing `playlist2.songCount` does not affect `playlist1.songCount`, you need to create a copy of the object rather than referencing the same one. That way, each playlist has its own separate data.
 
 **Corrected Code:**
 
@@ -60,7 +62,13 @@ For each task below, identify which array method (forEach, filter, map, find, or
 
 ### Response 2
 
-Your response...
+1. If I needed to get an array containing only students who scored above 85. I would use: `.filter()`
+
+2. If I needed to find the student named "Destiny" and update their grade to 90. I would use: `.find()`
+
+3. If I needed to calculate the average grade of all students. I would use: `.reduce()`
+
+4. If I needed to create an array of strings in the format: "Maya: 92". I would use: `.map()`
 
 ---
 
@@ -82,7 +90,8 @@ console.log(upperCaseLetters);
 
 ### Response 3
 
-Your response...
+The error happens because `capitalize()` is being called immediately instead of being passed as a function to `.map`. Since it’s called with no argument, str becomes undefined, and the program tries to run `toUpperCase()` on something that doesn’t exist. To fix it, I just need to remove the parentheses and write `letters.map(capitalize)`. A good way to avoid this in the future is to remember that `.map`, `.filter`, and `.find` expect a function reference, not a function call.
+
 
 ---
 
@@ -102,13 +111,26 @@ const grandTotal = orders.reduce((sum, order) => {
 }, 0);
 ```
 
-- Part A: What will `grandTotal` equal after this code runs?
+- Part A: What will `grandTotal` equal after this code runs? 
+
+
 - Part B: Explain what the `0` at the end of the reduce method does. Why is it important?
+
+
 - Part C: Walk through what happens in the FIRST iteration of reduce:
     - What is the value of sum?
     - What is the value of order?
     - What gets returned?
 
 ### Response 4
+Part A: 
 
-Your response...
+The `grandTotal` will be 135.
+
+Part B:
+
+The ***0*** at the end is the initial value for sum. It’s important because it tells reduce where to start the total so the math is accurate. Without it, JavaScript would try to use the first object as the starting value, which can lead to errors or unexpected results.
+
+Part C:
+
+In the first iteration, sum starts at ***0*** (because of the initial value). The order is the first object in the array: `{ id: 1, total: 45 }`. The function returns ***0 + 45***, which becomes ***45***, and that value is carried into the next iteration.
