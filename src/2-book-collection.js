@@ -5,14 +5,18 @@ const bookInventory = {
   "The Vanishing Half": 4,
   "Between the World and Me": 1
 };
-/// Don't use .notation. Bracket notation.
-console.log("The Bluest Eye: 3 copies available");
+/// Don't use .notation. Use Bracket notation.
 //For each book I want to print out a string.
-let keys = Object.keys(bookInventory)
+let totalBooks = 0;
+let keys = Object.keys(bookInventory);
+
 for (let i = 0; i < keys.length; i++) {
   console.log(`${keys[i]}: ${bookInventory[keys[i]]} copies available`);
-}
 
+  totalBooks += bookInventory[keys[i]];
+
+}
+console.log(`The total number of books is ${totalBooks}`);
 
 
 // Part A: Use Object.keys() and a for loop to print each book and its availability in this format:
